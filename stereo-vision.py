@@ -221,17 +221,10 @@ def pipeline()-> None:
     left_image = cv2.imread(args.l_img)
     right_image = cv2.imread(args.r_img)
     params = read_calibration(args.cal_file)
-    selection(left_image,right_image,params)
-    plotting("Plot1")
-    points_panda.clear()
-
-    selection(left_image,right_image,params)
-    plotting("Plot2")
-    points_panda.clear()
-
-    selection(left_image,right_image,params)
-    plotting("Plot3")
-    points_panda.clear()
+    for i in range(3):
+        selection(left_image,right_image,params)
+        plotting(f"Plot {i+1}")
+        points_panda.clear()
     # Limpiar listas fuera del bucle
     return None
 
