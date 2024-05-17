@@ -71,7 +71,7 @@ def read_calibration(file_path:str)->dict:
                 calibration_params[key] = value
     return calibration_params
 
-def onclick(event, points_list):
+def onclick(event, points_list:tuple)->None:
     """
     Handle mouse click events.
 
@@ -91,7 +91,7 @@ def onclick(event, points_list):
         else:
             print("¡Punto fuera de los límites de la imagen!")
 
-def on_key(event):
+def on_key(event)->None:
     """
     Handle key press events for q key.
 
@@ -105,7 +105,7 @@ def on_key(event):
     if event.key == 'q':
         exit_flag = True
 
-def select_points(left_image: NDArray,right_image: NDArray):
+def select_points(left_image: NDArray,right_image: NDArray)->None:
     """
     Display left and right images for point selection, and select the points.
 
@@ -156,7 +156,7 @@ def selection(left_image:NDArray,right_image:NDArray,calibration:dict)->None:
         right_points.clear()
         # Salir del bucle si se presiona 'q'
     
-def compute_real_distances(calibration:dict):
+def compute_real_distances(calibration:dict)->None:
     """
     Compute real distances between selected points and appends them to a global variable.
 
