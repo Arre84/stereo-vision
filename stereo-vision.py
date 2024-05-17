@@ -144,11 +144,13 @@ def selection(left_image:NDArray,right_image:NDArray,calibration:dict)->None:
     global exit_flag 
     for i in range(30):
         select_points(left_image,right_image)
-        if left_points:
-            compute_real_distances(calibration)
         if exit_flag:
             exit_flag = False
+            left_points.clear()
+            right_points.clear()
             break
+        if left_points:
+            compute_real_distances(calibration)
         print("coordenadas guardados hasta ahora:", points_panda,"mm")
         left_points.clear()
         right_points.clear()
